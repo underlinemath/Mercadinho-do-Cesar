@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercado João — Gestão Inteligente</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- TELA DE LOGIN -->
+<div class="login-screen hidden" id="loginScreen">
+  <section class="login-side">
+    <div class="brand" style="padding:4px 0 0"><div class="brand-mark">MC</div><div><strong>Mercado Jõao</strong><span>Gestão Inteligente</span></div></div>
+    <div>
+      <h2>Seu mercado sob controle, todos os dias.</h2>
+      <p>O sistema analisa estoque, vendas, fornecedores e validades para indicar o que precisa de atenção.</p>
+      <div class="automation-status"><i></i><div><strong>Compras inteligentes</strong><small>Sugestão pelo ritmo de venda e prazo do fornecedor</small></div></div>
+      <div class="automation-status"><i></i><div><strong>Controle de validade</strong><small>Alertas de lotes com risco de vencer</small></div></div>
+      <div class="automation-status"><i></i><div><strong>Automação ativa</strong><small>Alertas calculados automaticamente</small></div></div>
+    </div>
+    <small class="copy">© Mercado João</small>
+  </section>
+  <section class="login-main">
+    <form class="card login-card" id="loginForm" novalidate>
+      <h2>Entrar</h2>
+      <p class="login-sub">Use seu usuário e senha para acessar o painel.</p>
+      <div class="login-error hidden" id="loginError" role="alert"></div>
+      <div class="form-group"><label for="loginUser">Usuário</label><input class="form-input" id="loginUser" autocomplete="username" placeholder="ex.: cesar"></div>
+      <div class="form-group"><label for="loginPass">Senha</label><div class="pw-wrap"><input class="form-input" id="loginPass" type="password" autocomplete="current-password" placeholder="Sua senha"><button type="button" class="btn btn-secondary btn-small" id="pwToggle">Mostrar</button></div></div>
+      <button class="btn btn-primary" id="loginSubmit">Entrar</button>
+      <p class="login-foot">Problemas para entrar? Fale com o administrador.</p>
+    </form>
+  </section>
+</div>
+
+<div class="app-shell hidden" id="appShell">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">MC</div><div><strong>Mercado João</strong><span>Gestão Inteligente</span></div></div>
+  <nav class="nav">
+    <button class="nav-item active" data-view="dashboard">⌂ <span>Dashboard</span></button>
+    <button class="nav-item" data-view="products">▦ <span>Produtos</span></button>
+    <button class="nav-item" data-view="sales">↗️ <span>Vendas</span></button>
+    <button class="nav-item" data-view="purchases">🛒 <span>Compras</span></button>
+    <button class="nav-item" data-view="suppliers">🚚 <span>Fornecedores</span></button>
+    <button class="nav-item" data-view="reports">▥ <span>Relatórios</span></button>
+    <button class="nav-item" data-view="settings">⚙️ <span>Configurações</span></button>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="automation-status"><i></i><div><strong>Automação ativa</strong><small>Alertas calculados automaticamente</small></div></div>
+    <button class="outline-btn" id="runRoutine">↻ Atualizar inteligência</button>
+  </div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div><div class="breadcrumb">Mercado João / <span id="viewLabel">Dashboard</span></div><h1 id="pageTitle">Bom dia, João</h1></div>
+  <div class="top-actions"><small>Última análise: <b id="lastUpdate">agora</b></small><button class="icon-btn" id="notificationsBtn">🔔<em id="notificationBadge">0</em></button><button class="icon-btn" id="logoutBtn" title="Sair">🚪</button></div>
+</header>
+<section id="appContent"></section>
+</main>
+</div>
+<div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal" id="modal"></div></div>
+<div class="toast hidden" id="toast"></div>
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
